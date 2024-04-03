@@ -1,5 +1,5 @@
 from calculator import MemoryCalculator
-
+import pytest
 
 def test_sum_is_zero_on_initialization():
   calculator = MemoryCalculator()
@@ -21,12 +21,12 @@ def test_sum_two_numbers():
   calculator.add(2)
   assert calculator.sum() == 5
 
-
-def test_sum_is_zero_after_calling_sum():
+@pytest.mark.parametrize("num1, num2, result", [(13,2,15), (10,1,11)])
+def test_sum_is_zero_after_calling_sum(num1, num2, result):
   calculator = MemoryCalculator()
-  calculator.add(13)
-  calculator.add(2)
-  assert calculator.sum() == 15
+  calculator.add(num1)
+  calculator.add(num2)
+  assert calculator.sum() == result
   assert calculator.sum() == 0
 
 
