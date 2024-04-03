@@ -1,4 +1,4 @@
-from calendar import Calendar
+from calendars import Calendar
 
 
 def test_calendar_first_letter():
